@@ -10,7 +10,18 @@ function addName() {
   if (capturedName) {
     names.push(capturedName);
     document.getElementById('amigo').value = '';
+    displayNames();
   }
 }
 
-document.getElementById('addButton').addEventListener('click', addName);
+function displayNames() {
+  let list = document.getElementById('listaAmigos');
+  list.innerHTML = '';
+  names.forEach(function (name) {
+    let listItem = document.createElement('li');
+    listItem.textContent = name;
+    list.appendChild(listItem);
+  });
+}
+
+displayNames();
